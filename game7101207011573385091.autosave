@@ -1,0 +1,43 @@
+boolean start=false;
+static int max=1;
+float min_speed=3;
+float max_speed=5;
+float move=5;
+Box[] b=new Box[max];
+//dots = new Dot[size];
+void setup()
+{
+  
+    frameRate(50);
+    size(800,500);
+    //frameRate(1000);
+//     b=new Box[10];
+  int i;
+  for(i=0;i<max;i++)
+  {
+   b[i]=new Box(); 
+  }
+}       
+void draw()
+{
+    background(255);
+    int i;
+    if(keyPressed)
+    {
+      start=true; 
+    }
+    if(start)
+    {
+    for(i=0;i<max;i++)
+    {
+      
+    textSize(32);
+    String txt= "Score = " + b[i].score;
+      fill(255, 0, 255);
+      text(txt, width-300, 200); 
+      b[i].update();
+    //b[i].callBrain();
+    }
+    }
+}    
+    
